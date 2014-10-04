@@ -5,6 +5,7 @@ from . import serializers
 
 class TeamViewSet(ModelViewSet):
     model = models.Team
+    serializer_class = serializers.TeamSerializer
     permission_classes = (permisssions.IsOwnerPermission, )
 
     def filter_queryset(self, queryset):
