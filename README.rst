@@ -36,8 +36,7 @@ Boostraping
 
    .. code::
 
-       pip install django djangorestframework
-
+       pip install django djangorestframework dj-database-url
 
 Comandos Django
 ---------------
