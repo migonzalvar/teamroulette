@@ -11,6 +11,12 @@ class TeamViewSet(ModelViewSet):
         queryset = super().filter_queryset(queryset)
         return queryset.filter(owner=self.request.user)
 
+
 class PlayerViewSet(ModelViewSet):
     model = models.Player
+    permission_classes = (permisssions.IsOwnerPermission, )
+
+
+class TournamentViewSet(ModelViewSet):
+    model = models.Tournament
     permission_classes = (permisssions.IsOwnerPermission, )
