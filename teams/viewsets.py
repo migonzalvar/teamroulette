@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from . import models
 from . import permisssions
-
+from . import serializers
 
 class TeamViewSet(ModelViewSet):
     model = models.Team
@@ -14,6 +14,7 @@ class TeamViewSet(ModelViewSet):
 
 class PlayerViewSet(ModelViewSet):
     model = models.Player
+    serializer_class = serializers.PlayerSerializer
     permission_classes = (permisssions.IsOwnerPermission, )
 
 
