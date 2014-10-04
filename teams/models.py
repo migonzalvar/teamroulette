@@ -13,6 +13,7 @@ class Team(models.Model):
 class Player(models.Model):
     name = models.CharField(max_length=128)
     team = models.ForeignKey(Team)
+    owner = models.ForeignKey(User, default=None, null=True)
 
     def __str__(self):
         tpl = '{} ({})'
