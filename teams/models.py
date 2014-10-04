@@ -26,7 +26,8 @@ class Tournament(models.Model):
     teams = models.ManyToManyField(to=Team)
     owner = models.ForeignKey(User, default=None, null=True)
 
-
+    def __str__(self):
+        return self.name
 
 
 
