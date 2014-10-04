@@ -79,6 +79,6 @@ Heroku
 
     heroku create
     git push heroku master
-    heroku run python manage.py syncdb
+    heroku run python manage.py migrate
     heroku open
 
