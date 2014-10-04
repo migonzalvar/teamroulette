@@ -71,7 +71,7 @@ makemigrations *<app>*
       .. code::
       
           django-admin startproject teamroulette .
-=======
+
 Heroku
 ------
 
