@@ -66,10 +66,19 @@ startapp *<app>*
 makemigrations *<app>*
     Genera código para migración de modelos
 
-
 .. note:: Inicializar proyecto
 
       .. code::
       
           django-admin startproject teamroulette .
+=======
+Heroku
+------
+
+.. code::
+
+    heroku create
+    git push heroku master
+    heroku run python manage.py migrate
+    heroku open
 
