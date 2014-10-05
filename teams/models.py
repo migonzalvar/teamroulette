@@ -30,6 +30,14 @@ class Tournament(models.Model):
         return self.name
 
 
+class Round(models.Model):
+    home_team = models.ForeignKey(Team, related_name='home_team')
+    foreign_team = models.ForeignKey(Team, related_name='foreign_team')
+
+    def __str__(self):
+        tpl = '{} vs {}'
+        args = self.home_team, self.foreign_team
+        return tpl.format(*args)
 
 
 

@@ -22,3 +22,9 @@ class PlayerViewSet(ModelViewSet):
 class TournamentViewSet(ModelViewSet):
     model = models.Tournament
     permission_classes = (permisssions.IsOwnerPermission, )
+
+
+class RoundViewSet(ModelViewSet):
+    model = models.Round
+    permission_classes = (permisssions.IsOwnerPermission, )
+
