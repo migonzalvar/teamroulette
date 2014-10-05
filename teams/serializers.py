@@ -6,12 +6,15 @@ class TeamSerializer(serializers.ModelSerializer):
         model = models.Team
 
 class PlayerSerializer(serializers.ModelSerializer):
-    team_alias = serializers.SerializerMethodField('get_team')
+    """Generic serializer."""
+    class Meta:
+        model = models.Player
+        fields = ('id', 'name', 'team', 'owner', )
+
+class PlayerReadOnlySerializer(serializers.ModelSerializer):
+    """Read only serializer."""
+    team = TeamSerializer()
 
     class Meta:
         model = models.Player
-        fields = ('id', 'name', 'team', 'owner', 'team_alias', )
-        write_only_fields = ('team', )
-
-    def get_team(self, obj):
-        return obj.team.name.upper()
+        fields = ('id', 'name', 'team', 'owner', )

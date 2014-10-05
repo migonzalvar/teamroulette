@@ -12,12 +12,16 @@ class TeamViewSet(ModelViewSet):
         queryset = super().filter_queryset(queryset)
         return queryset.filter(owner=self.request.user)
 
-
 class PlayerViewSet(ModelViewSet):
-    model = models.Player
-    serializer_class = serializers.PlayerSerializer
     permission_classes = (permisssions.IsOwnerPermission, )
-
+    queryset = models.Player.objects.all()
+    
+    def get_serializer_class(self):
+        # Use a different serializer for read and write operations
+        if self.request.method in ('GET', ):
+            return serializers.PlayerReadOnlySerializer
+        else:
+            return serializers.PlayerSerializer
 
 class TournamentViewSet(ModelViewSet):
     model = models.Tournament
