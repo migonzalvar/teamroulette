@@ -12,11 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Round',
+            name='Match',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
-                ('foreign_team', models.ForeignKey(to='teams.Team', related_name='foreign_team')),
-                ('home_team', models.ForeignKey(to='teams.Team', related_name='home_team')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('foreign_team', models.ForeignKey(related_name='foreign_team', to='teams.Team')),
+                ('home_team', models.ForeignKey(related_name='home_team', to='teams.Team')),
             ],
             options={
             },
